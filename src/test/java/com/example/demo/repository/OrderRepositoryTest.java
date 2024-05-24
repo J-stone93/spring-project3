@@ -1,5 +1,6 @@
 package com.example.demo.repository;
 
+import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
@@ -79,6 +80,27 @@ public class OrderRepositoryTest {
 		
 		orderRepository.deleteAll();
 	}	
+	
+	@Test
+	public void 주소지가인천_주문검색() {
+		
+		List<Order> list = orderRepository.get1("인천");
+		
+		for (Order order : list) {
+			System.out.println(order);
+		}
+	}
+	
+	@Test
+	public void 주문일7월3일_주문검색() {
+		
+		List<Order> list = orderRepository.get2(Date.valueOf("2023-07-03"));
+		
+		for (Order order : list) {
+			System.out.println(order);
+		}
+	}
+	
 }
 
 

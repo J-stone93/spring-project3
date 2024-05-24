@@ -80,4 +80,77 @@ public class GiftRepositoryTest {
 	public void 데이터전체삭제() {
 		giftRepository.deleteAll();
 	}
+	
+	@Test
+	public void 가격50000이상_물건검색() {
+		
+		List<Gift> list = giftRepository.get1();
+		
+		for (Gift gift : list) {
+			System.out.println(gift);
+		}
+	}
+	
+	@Test
+	public void 이름이세트로끝나는_물건검색() {
+		
+		List<Gift> list = giftRepository.get2();
+		
+		for (Gift gift : list) {
+			System.out.println(gift);
+		}
+	}
+	
+	@Test
+	public void 가격40000이하생활용품_물건검색() {
+		
+		List<Gift> list = giftRepository.get3();
+		
+		for (Gift gift : list) {
+			System.out.println(gift);
+		}
+	}
+
+	@Test
+	public void 가격50000이상_물건검색2() {
+		
+		List<Gift> list = giftRepository.get4(50000);
+		
+		for (Gift gift : list) {
+			System.out.println(gift);
+		}
+	}
+	
+	@Test
+	public void 이름이세트로끝나는_물건검색2() {
+		
+		List<Gift> list = giftRepository.get5("세트");
+		
+		for (Gift gift : list) {
+			System.out.println(gift);
+		}
+	}
+	
+	@Test
+	public void 가격40000이하생활용품_물건검색2() {
+		
+		List<Gift> list = giftRepository.get6(40000, "생활용품");
+		
+		for (Gift gift : list) {
+			System.out.println(gift);
+		}
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

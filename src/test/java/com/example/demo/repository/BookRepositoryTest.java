@@ -75,7 +75,67 @@ public class BookRepositoryTest {
 		bookRepository.deleteAll();
 	}
 	
+	// 순수한 SQL
+	@Test
+	public void 자바프로그래밍입문_데이터검색() {
+		
+		List<Book> list = bookRepository.get1();
+		
+		for (Book book : list) {
+			System.out.println(book);
+		}
+	}
 	
+	@Test
+	public void 가격30000이상남가람북스인_데이더검색() {
+		
+		List<Book> list = bookRepository.get2();
+		
+		for (Book book : list) {
+			System.out.println(book);
+		}
+	}
+	
+	@Test
+	public void 출판사한빛또는이지스인_데이터검색() {
+		
+		List<Book> list = bookRepository.get3();
+		
+		for (Book book : list) {
+			System.out.println(book);
+		}
+	}
+	
+	// JPQL
+	@Test
+	public void 자바프로그래밍입문_데이터검색2() {
+		
+		List<Book> list = bookRepository.get4("자바프로그래밍입문");
+		
+		for (Book book : list) {
+			System.out.println(book);
+		}
+	}
+	
+	@Test
+	public void 가격30000이상남가람북스인_데이더검색2() {
+		
+		List<Book> list = bookRepository.get5(30000, "남가람북스");
+		
+		for (Book book : list) {
+			System.out.println(book);
+		}
+	}
+	
+	@Test
+	public void 출판사한빛또는이지스인_데이터검색2() {
+		
+		List<Book> list = bookRepository.get6("한빛출판사", "이지스퍼블리싱");
+		
+		for (Book book : list) {
+			System.out.println(book);
+		}
+	}
 }
 
 
