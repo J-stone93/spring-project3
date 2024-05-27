@@ -93,14 +93,36 @@ public class OrderRepositoryTest {
 	
 	@Test
 	public void 주문일7월3일_주문검색() {
+		// of: 생성자 대신 객체를 생성하는 함수
+		LocalDate localDate = LocalDate.of(2023,7,3);  
 		
-		List<Order> list = orderRepository.get2(Date.valueOf("2023-07-03"));
+		List<Order> list = orderRepository.get2(localDate);
 		
 		for (Order order : list) {
 			System.out.println(order);
 		}
 	}
 	
+	@Test
+	public void 주소지가인천_주문검색2() {
+		
+		List<Order> list = orderRepository.get3("인천");
+		
+		for (Order order : list) {
+			System.out.println(order);
+		}
+	}
+	
+	@Test
+	public void 주문일7월3일_주문검색2() {
+		
+		// order리파지토리에서 date 속성으로 썼을 경우
+		List<Order> list = orderRepository.get4(Date.valueOf("2023-07-03"));
+		
+		for (Order order : list) {
+			System.out.println(order);
+		}
+	}
 }
 
 
